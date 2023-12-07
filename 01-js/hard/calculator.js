@@ -16,6 +16,51 @@
   Once you've implemented the logic, test your code by running
 */
 
-class Calculator {}
+class Calculator {
+  constructor() {
+    this.result = 0;
+  }
+
+  add(num) {
+    this.result += num;
+  }
+
+  subtract(num) {
+    this.result -= num;
+  }
+
+  multiply(num) {
+    this.result *= num;
+  }
+
+  divide(num) {
+    if (num == 0) {
+      throw new Error("Cannot divide by Zero");
+    }
+    this.result /= num;
+  }
+
+  clear() {
+    this.result = 0;
+  }
+
+  getResult() {
+    return this.result;
+  }
+
+  calculate(expression) {
+    expression = expression.replace(/\s+/g, " ");
+    if (!/^[0-9\+\-\.\*\/\(\) ]+$/.test(expression)) {
+      throw new Error("Invalid input");
+    }
+
+    // Evaluate the expression
+    this.result = eval(expression);
+  }
+}
 
 module.exports = Calculator;
+
+// let calc = new Calculator();
+// var res = calc.calculate("10 +   2 *    (   6 - (4 + 1) / 2) + 7");
+// console.log(res);
