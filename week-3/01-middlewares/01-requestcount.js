@@ -24,4 +24,9 @@ app.get("/requestCount", function (req, res) {
   res.status(200).json({ requestCount });
 });
 
+app.use((req, res, next) => {
+  requestCount += 1;
+  next();
+})
+
 module.exports = app;
