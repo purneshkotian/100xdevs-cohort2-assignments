@@ -6,11 +6,12 @@ import { useMemo, useState } from "react";
 export function Assignment1() {
   const [input, setInput] = useState(0);
   // Your solution starts here
-  var expensiveValue = 0;
-  useMemo(() => {
+  var expensiveValue = useMemo(() => {
+    let value = 0;
     for (let i = 0; i < input; i++) {
-      expensiveValue += i;
+      value += i;
     }
+    return value;
   }, [input]);
 
   // Your solution ends here
